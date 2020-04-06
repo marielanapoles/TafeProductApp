@@ -8,13 +8,15 @@ namespace ProductApps
 {
     class Product
     {
+        private decimal delivery = 25;
+        private decimal wrapping = 5;
+
         private decimal price;
         private int quantity;
         private decimal totalPayment;
-        private decimal delivery;
-        private decimal wrapping;
         private decimal gst;
         private decimal totalCharge;
+        private decimal totalWrapping;
 
         private decimal Price
         {
@@ -61,6 +63,14 @@ namespace ProductApps
             set { totalCharge = value; }
         }
 
+        //************TOTAL WRAPPING************
+        public decimal TotalWrapping
+        {
+            get { return totalWrapping; }
+            set { totalWrapping = value; }
+        }
+
+
         //Constructor for Product
         public Product(decimal price, int quantity)
         {
@@ -77,8 +87,15 @@ namespace ProductApps
         //--------TOTAL CHARGE
         public void calcTotalCharge()
         {
-            TotalCharge = TotalPayment + 25;
+            TotalCharge = TotalPayment + Delivery;
         }
+
+        //--ADD Wrapping Charge
+        public void calcWrapping()
+        {
+            TotalCharge = TotalPayment + Delivery + Wrapping;
+        }
+
 
         
     }
