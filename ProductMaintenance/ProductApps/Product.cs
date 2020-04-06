@@ -14,7 +14,7 @@ namespace ProductApps
         private decimal price;
         private int quantity;
         private decimal totalPayment;
-        private decimal gst;
+        private decimal gst = 1.1m;
         private decimal totalCharge;
         private decimal totalWrapping;
 
@@ -96,7 +96,13 @@ namespace ProductApps
             TotalCharge = TotalPayment + Delivery + Wrapping;
         }
 
+        //*****ADD GST
+        public void calcGST()
+        {
+            TotalCharge = (TotalPayment + Delivery + Wrapping) * gst;
+        }
 
-        
+
+
     }
 }
